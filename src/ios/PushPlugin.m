@@ -274,6 +274,14 @@
 
     [self successWithMessage:[NSString stringWithFormat:@"app badge count set to %d", badge]];
 }
+
+-(void)getApplicationIconBadgeNumber:() {
+
+    NSInteger badgeNumber = [UIApplication sharedApplication].applicationIconBadgeNumber;
+
+    [self successWithMessage:[NSString stringWithFormat:@"app badge count is %d", badgeNumber]];
+}
+
 -(void)successWithMessage:(NSString *)message
 {
     if (self.callbackId != nil)
