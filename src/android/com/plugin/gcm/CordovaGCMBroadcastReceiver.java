@@ -113,8 +113,23 @@ public class CordovaGCMBroadcastReceiver extends WakefulBroadcastReceiver {
 						.setContentTitle(extras.getString("title"))
 						.setTicker(extras.getString("title"))
 						.setContentIntent(contentIntent)
-            .setColor(getColor(extras))
+						.setColor(getColor(extras))
 						.setAutoCancel(true);
+
+		String group = extras.getString("group");
+		if (group != null && !group.trim().isEmpty()) {
+			mBuilder.setGroup(group);
+		}
+
+		String category = extras.getString("category");
+		if (category != null && !category.trim().isEmpty()) {
+			mBuilder.setCategory(category);
+		}
+
+		String subtext = extras.getString("subtext");
+		if (subtext != null && !subtext.trim().isEmpty()) {
+			mBuilder.setSubText(subtext);
+		}
 
 		String message = extras.getString("message");
 		if (message != null) {
